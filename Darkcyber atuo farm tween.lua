@@ -442,7 +442,7 @@ return t
 
 end
 
-function GetToken(TokenId) do
+function GetToken(TokenId)
       local t = {}
       local i = 0
       for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
@@ -456,8 +456,6 @@ function GetToken(TokenId) do
       i = i+1
       end
       return t
-
-
 end
 
 local snowflake = false
@@ -3670,16 +3668,9 @@ PepperButton.MouseButton1Down:connect(function()
       tuoidz = "Pepper Patch"
       FieldText.Text = "Field Select: "..tuoidz
 end)
-local tool
- for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
-      if v:IsA("Tool") then 
-            tool = v
-      
-      end
-            end
-            function Dig()
-                  tool.ClickEvent:FireServer()
-                  end
+
+
+            
 local player = game.Players.LocalPlayer
 
 local mouse = player:GetMouse()
