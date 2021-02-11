@@ -13,8 +13,9 @@ local tool
                   end
 
 
+local selling = false
 
-
+local farming = false
 
 local act6temp = false
 
@@ -188,7 +189,7 @@ local polar = coroutine.wrap(function()
             if autopolar then
                   --print("auto")
                   local t = GetPolarQuest()
-                  print(t)
+                  --print(t)
                   if t then
                   for k,v in pairs(t:GetChildren()) do
                         if v:IsA("Frame") then
@@ -628,7 +629,7 @@ function tpT(t,k)
          
      end)
      --syn.write_clipboard(err)
-     print(err)
+     --print(err)
      if not tween then return err end
 
 
@@ -3518,38 +3519,56 @@ end)
 
 local killvici = false
 Autokillvicious.MouseButton1Down:connect(function(q)
+      local old2 = farming
       if killvici == false then
-             
+      
        
       killvici = true 
       Autokillvicious.BackgroundColor3 =red
-      noclip = true
+      
       while killvici do
             wait()
-            
-            
+      local old = farming  
+      
       for _,i in pairs(game.workspace.Particles:GetChildren()) do 
-      if string.find(i.Name,"Waiti") then
+      if string.find(i.Name,"Waiti") and not selling then
+            farming = false
+            noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = i.CFrame
+      else
+            farming = old
       end
       end
 for _,v in pairs(game.workspace.Monsters:GetChildren()) do 
-      if string.find(v.Name,"Vici") then
+      if string.find(v.Name,"Vici") and not selling then
+            farming = false
+            noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,13,0)
-            
+      else farming = old
       end
 end
 for _,r in pairs(game.workspace.Monsters:GetChildren()) do 
-      if string.find(r.Name,"Gifted") then
+      if string.find(r.Name,"Gifted") and not selling then
+            farming = false
+            noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = r.Torso.CFrame * CFrame.new(0,13,0)
-      
+      else
+            farming = old
             end
             
       end
       end
+local fi = false
+for k,v in pairs(game.Workspace.Monsters:GetChildren()) do
+      if string.find(v.Name,"Gifted") or string.find(v.Name,"Vici") then
+            fi = true
+      end
+end
+if fi == false then noclip = false end
 else 
       killvici = false
       noclip = false
+      farming = old2
       Autokillvicious.BackgroundColor3 =blue
       end
 end)
@@ -3670,7 +3689,7 @@ local jimmy = coroutine.wrap(function()
                   if (((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60) then
                         if IsPopStar() then break end
                         if v:FindFirstChild("FrontDecal") then 
-                              if (v.FrontDecal.Texture == TokenId["BlueBomb"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or (v.FrontDecal.Texture == TokenId["BlueBomb+"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or v.FrontDecal.Texture == TokenId["TokenLink"] then   
+                              if (v.FrontDecal.Texture == TokenId["BlueBomb"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or (v.FrontDecal.Texture == TokenId["BlueBomb+"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or v.FrontDecal.Texture == TokenId["TokenLink"] and farming then   
                                     sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                                     wait(.2)
                         
@@ -3684,7 +3703,7 @@ local jimmy = coroutine.wrap(function()
                         for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do 
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then 
                                     if v:FindFirstChild("FrontDecal") then 
-                                          if v.FrontDecal.Texture == TokenId["Frog"] then
+                                          if v.FrontDecal.Texture == TokenId["Frog"] and farming then
                                                 sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                                                 wait(.3)
                                           
@@ -3698,7 +3717,7 @@ local jimmy = coroutine.wrap(function()
 
                         for k,v in pairs(game.Workspace.Particles:GetChildren()) do
                               if v.ClassName == "Part" then
-                              if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then
+                              if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
                                     if v.Name == "Bubble" then 
                                     sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                                     wait(.1)
@@ -3715,7 +3734,7 @@ local jimmy = coroutine.wrap(function()
             Dig()
         for k,v in pairs(GetTokenLink()) do
             if act6temp then break; end
-            if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then
+            if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
 			tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
                   Dig()
 		end
@@ -3730,19 +3749,20 @@ local jimmy = coroutine.wrap(function()
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                         local times = 0.2
 				if nothoney then
-				if v.FrontDecal.Texture ~= HoneyBeeDecal then 
+				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
 				tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
                         Dig()
 				end
 				else
                         if onlyhoney then 
-                              if v.FrontDecal.Texture == HoneyBeeDecal then
+                              if v.FrontDecal.Texture == HoneyBeeDecal and farming then
                                     tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
                               end
                         else
+                              if farming then
                               tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
                               Dig()
-
+                              end
                         end
 				
 
@@ -3790,12 +3810,14 @@ end
 StartButton.MouseButton1Down:connect(function()
 if act6 == true then
 act6 = false
+farming = false
 StartButton.BackgroundColor3 = blue
 StartButton.Text = "START FARMING"
 else
 act6 = true
 StartButton.BackgroundColor3 = red
 StartButton.Text = "STOP FARMING"
+farming = true
  
 
 local jimmy3 = coroutine.wrap(function()
@@ -3805,6 +3827,7 @@ for k,v in pairs(workspace[player.Name]:GetChildren()) do
 if v:FindFirstChild("Display") then
 if player.CoreStats.Pollen.Value>= player.CoreStats.Capacity.Value then
 act6temp = true
+selling = true
 wait(4)
 local sanghuman = player.Character.HumanoidRootPart
 local hotboi = sanghuman.CFrame
@@ -3816,6 +3839,7 @@ game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("Toggle
 local ticks = tick()
 repeat wait(.1) until player.CoreStats.Pollen.Value <= 1 and ticks-tick()<30
 wait(1)                       
+selling = false
 --sanghuman.CFrame = sangzboi * CFrame.new(0,0,0)
 wait(1)
 local A = {
