@@ -2878,6 +2878,7 @@ while wait() do
             if snowflake==true then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X,v.Position.Y,v.Position.Z)
             wait(1)
+            --tpT(CFrame.new(v.Position.X,v.Position.Y,v.Position.Z),0.1)
             end
             end
             
