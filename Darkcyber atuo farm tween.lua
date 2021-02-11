@@ -2876,9 +2876,10 @@ while wait() do
             if v:FindFirstChild("FrontDecal") then 
             if v.FrontDecal.Texture == snowflakes then
             if snowflake==true then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X,v.Position.Y,v.Position.Z)
-            wait(1)
-            --tpT(CFrame.new(v.Position.X,v.Position.Y,v.Position.Z),0.1)
+           -- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X,v.Position.Y,v.Position.Z)
+            --wait(1)
+            tpT(CFrame.new(v.Position.X,v.Position.Y,v.Position.Z),0.2)
+            wait(.3)
             end
             end
             
