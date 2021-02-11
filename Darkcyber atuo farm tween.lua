@@ -3746,6 +3746,7 @@ local jimmy = coroutine.wrap(function()
             Dig()
             for k,v in pairs(GetTokenLink()) do
             if act6temp then break; end
+            if onlyhoney then break; end
             if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
 			tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
                   Dig()
@@ -3754,6 +3755,7 @@ local jimmy = coroutine.wrap(function()
 
             for k,v in pairs(GetToken("Star")) do
                   if act6temp then break; end
+                  if onlyhoney then break; end
                   if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
                         tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
                         Dig()
