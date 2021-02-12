@@ -3708,9 +3708,10 @@ while wait() do
 if selling then
 wait(.5)
 local tpos = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.ActivateButton
-if tpos.AbsolutePosition.Y ~= 4 then 
+if tpos.AbsolutePosition.Y ~= 4 then
+if farming then
 tpT(game:GetService("Players").LocalPlayer.SpawnPos.Value,0.2)
-
+end
 end
 wait(1)
 if string.match(tpos.TextBox.Text,"Stop") then
@@ -3718,7 +3719,9 @@ if string.match(tpos.TextBox.Text,"Stop") then
 else
       if string.match(tpos.TextBox.Text,"Collect") then
       else
+            if farming then
             game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
+            end
 
       end
 end
@@ -3904,7 +3907,7 @@ sanghuman.CFrame = game:GetService("Players").LocalPlayer.SpawnPos.Value
 wait(3)
 game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
 local ticks = tick()
-repeat wait(.1) until player.CoreStats.Pollen.Value <= 1 and ticks-tick()<30
+repeat wait(.1) until (player.CoreStats.Pollen.Value <= 1 and ticks-tick()<30) or farming==false
 wait(1)                       
 selling = false
 --sanghuman.CFrame = sangzboi * CFrame.new(0,0,0)
