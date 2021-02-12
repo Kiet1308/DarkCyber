@@ -3710,7 +3710,8 @@ wait(.5)
 local tpos = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.ActivateButton
 if tpos.AbsolutePosition.Y ~= 4 then
 if farming then
-tpT(game:GetService("Players").LocalPlayer.SpawnPos.Value,0.2)
+--tpT(game:GetService("Players").LocalPlayer.SpawnPos.Value,0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.SpawnPos.Value
 end
 end
 wait(1)
