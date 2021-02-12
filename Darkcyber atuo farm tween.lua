@@ -3985,8 +3985,10 @@ game.ReplicatedStorage.Events.GiveQuestFromPool:FireServer("Black Bear")
 game.ReplicatedStorage.Events.GiveQuestFromPool:FireServer("Bucko Bee")
 game.ReplicatedStorage.Events.GiveQuestFromPool:FireServer("Riley Bee")
 
+game.ReplicatedStorage.Events.GiveQuestFromPool:FireServer("Black Bear 2")
 game.ReplicatedStorage.Events.CompleteQuestFromPool:FireServer("Black Bear 2")
 game.ReplicatedStorage.Events.GiveQuestFromPool:FireServer("Brown Bear 2")
+game.ReplicatedStorage.Events.CompleteQuestFromPool:FireServer("Brown Bear 2")
 
 
 
