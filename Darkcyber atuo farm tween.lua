@@ -3534,7 +3534,19 @@ end)
 
 
 
+local k = coroutine.wrap(function()
+      while wait() do 
+      local fi = false
+      for k,v in pairs(game.Workspace.Monsters:GetChildren()) do
+            if string.find(v.Name,"Gifted") or string.find(v.Name,"Vici") then
+                  fi = true
+            end
+      end
+      if fi == false then noclip = false end
+end
 
+end)
+k()
 
 local killvici = false
 Autokillvicious.MouseButton1Down:connect(function(q)
