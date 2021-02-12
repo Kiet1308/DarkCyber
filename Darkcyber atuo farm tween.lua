@@ -275,7 +275,7 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             if automob then
             --rootpart.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
             tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
-            wait(.2)
+            wait()
             end
       end
 end
