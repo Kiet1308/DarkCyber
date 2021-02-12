@@ -1,18 +1,6 @@
 -- Walking time out: 5s
+
 -- 
-
-local tool
- for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
-      if v:IsA("Tool") then 
-            tool = v
-      
-      end
-            end
-            function Dig()
-                  tool.ClickEvent:FireServer()
-                  end
-
-
 local selling = false
 
 local farming = false
@@ -25,9 +13,25 @@ local automob = false
 
 local autopolar = false
 
+
+function KLDC()
+local tool
+ for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
+      if v:IsA("Tool") then 
+            tool = v
+      
+      end
+            end
+            function Dig()
+                  tool.ClickEvent:FireServer()
+                  end
+
+
+
+
+local func = {}
 local AppQuest = game.ReplicatedStorage.Events.CompleteQuestFromPool
 local GiveQuest = game.ReplicatedStorage.Events.GiveQuestFromPool
-
 local QuestF = game.Players.LocalPlayer.PlayerGui.ScreenGui.Menus.Children.Quests.Content
 function DonePolar()
 AppQuest:FireServer("Polar Bear")
@@ -3544,10 +3548,8 @@ local k = coroutine.wrap(function()
       end
       if fi == false then noclip = false end
 end
-
 end)
 k()
-
 local killvici = false
 Autokillvicious.MouseButton1Down:connect(function(q)
       local old2 = farming
@@ -3701,9 +3703,33 @@ local act5 = false
 
 
 
+func.SellFix = coroutine.wrap(function()
+while wait() do
+if selling then
+wait(.5)
+local tpos = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.ActivateButton
+if tpos.AbsolutePosition.Y ~= 4 then 
+tpT(game:GetService("Players").LocalPlayer.SpawnPos.Value,0.2)
+
+end
+wait(1)
+if string.match(tpos.TextBox.Text,"Stop") then
+
+else
+      if string.match(tpos.TextBox.Text,"Collect") then
+      else
+            game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
+
+      end
+end
 
 
+end
+end
 
+end)
+
+func.SellFix()
 
 
 
@@ -3997,3 +4023,7 @@ afksnail = false
 Killstumnail.BackgroundColor3 = blue 
 end
 end)
+
+end
+
+KLDC()
