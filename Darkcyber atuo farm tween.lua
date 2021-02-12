@@ -3852,7 +3852,7 @@ end
 --wait(.1)
 if (game.Workspace.FlowerZones[tuoidz].Position - player.Character.HumanoidRootPart.Position).magnitude >= 50 then 
 --tp(sangzboi * CFrame.new(0,0,0))
-
+if farming then 
 sanghuman.CFrame = sangzboi * CFrame.new(0,0,0)
 wait(1)
 game.ReplicatedStorage.Events.PlayerActivesCommand:FireServer(
@@ -3861,6 +3861,7 @@ game.ReplicatedStorage.Events.PlayerActivesCommand:FireServer(
 }
 )
 --sanghuman.CFrame = sangzboi * CFrame.new(0,0,0)
+end
 end
 wait(.1)
 until not act6 or act6temp
