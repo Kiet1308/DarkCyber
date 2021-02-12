@@ -3551,26 +3551,32 @@ Autokillvicious.MouseButton1Down:connect(function(q)
       
       for _,i in pairs(game.workspace.Particles:GetChildren()) do 
       if string.find(i.Name,"Waiti") and not selling then
+            if killvici then
             farming = false
             noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = i.CFrame
+            end
       else
             farming = old
       end
       end
 for _,v in pairs(game.workspace.Monsters:GetChildren()) do 
       if string.find(v.Name,"Vici") and not selling then
+            if killvici then
             farming = false
             noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Torso.CFrame * CFrame.new(0,13,0)
+            end
       else farming = old
       end
 end
 for _,r in pairs(game.workspace.Monsters:GetChildren()) do 
       if string.find(r.Name,"Gifted") and not selling then
+            if killvici then
             farming = false
             noclip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = r.Torso.CFrame * CFrame.new(0,13,0)
+            end
       else
             farming = old
             end
@@ -3584,6 +3590,7 @@ for k,v in pairs(game.Workspace.Monsters:GetChildren()) do
       end
 end
 if fi == false then noclip = false end
+if killvici == false then noclip = false end
 else 
       killvici = false
       noclip = false
