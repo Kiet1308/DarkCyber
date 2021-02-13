@@ -926,7 +926,7 @@ DiscordlinkTest.BackgroundTransparency = 1
 DiscordlinkTest.Position = UDim2.new(0, 0, 0.601092875, 0)
 DiscordlinkTest.Size = UDim2.new(0.998024881, 0, 0.146612123, 0)
 DiscordlinkTest.Font = Enum.Font.GothamBold
-DiscordlinkTest.Text = "Link: https://discord.gg/yXNjfMa"
+DiscordlinkTest.Text = "Link: https://discord.gg/pNAcBsdbBB"
 DiscordlinkTest.TextColor3 = Color3.new(1, 1, 1)
 DiscordlinkTest.TextSize = 17
 
@@ -2317,7 +2317,7 @@ end
 end
 
 Copylinkdiscord.MouseButton1Down:Connect(function()
-setclipboard("discord.gg/GT6uXF2")
+setclipboard("https://discord.gg/pNAcBsdbBB")
 end)
 
 HomeButton.MouseButton1Down:Connect(function()
