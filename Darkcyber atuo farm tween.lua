@@ -165,6 +165,9 @@ function CollectAllTokenInField(Field)
       local sanghuman = player.Character.HumanoidRootPart
       local hotboi = sanghuman.CFrame
       local sangzboi = workspace.FlowerZones[Field].CFrame
+
+        if (sanghuman.Position - sangzboi.p).magnitude >=50 then sanghuman.CFrame = sangzboi end
+
       for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             if ( (v.Position-sangzboi.p).magnitude <= 60) and ((sanghuman.Position-v.Position).magnitude<=60) then
                   --local old = act6temp
