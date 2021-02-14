@@ -3540,7 +3540,7 @@ end)
 
 
 
-
+local killvici = false
 local k = coroutine.wrap(function()
       while wait() do 
       local fi = false
@@ -3549,11 +3549,11 @@ local k = coroutine.wrap(function()
                   fi = true
             end
       end
-      if fi == false then noclip = false end
+      if fi == false and killvici then noclip = false end
 end
 end)
 k()
-local killvici = false
+
 Autokillvicious.MouseButton1Down:connect(function(q)
       local old2 = farming
       if killvici == false then
