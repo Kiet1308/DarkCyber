@@ -1,6 +1,9 @@
 -- Walking time out: 5s
 
 -- 
+local red = Color3.fromRGB(255, 80, 80)
+local blue = Color3.new(0.34902, 0.32549, 1)
+
 local selling = false
 
 local farming = false
@@ -609,6 +612,8 @@ local WalkBtn2 = Instance.new("TextButton")
 local TypeF = Instance.new("TextLabel")
 local Mobbtn = Instance.new("TextButton")
 local AutoPolar = Instance.new("TextButton")
+local HideTok = Instance.new("TextButton")
+local HideB = Instance.new("TextButton")
 
 
 
@@ -814,6 +819,70 @@ AutoPolar.TextColor3 = Color3.new(1, 1, 1)
 AutoPolar.TextSize = 14
 --AutoPolar.TextWrap = true
 
+HideTok.Name = "HideTok"
+HideTok.Parent = ExtraPage
+HideTok.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
+HideTok.BorderSizePixel = 0
+HideTok.Position = UDim2.new(0.016, 0, 0.47, 0)
+HideTok.Size = UDim2.new(0, 200, 0, 20)
+HideTok.Font = Enum.Font.GothamBold
+HideTok.Text = "Hide Tokens"
+HideTok.TextColor3 = Color3.new(1, 1, 1)
+HideTok.TextSize = 14
+
+HideB.Name = "HideB"
+HideB.Parent = ExtraPage
+HideB.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
+HideB.BorderSizePixel = 0
+HideB.Position = UDim2.new(0.4, 0, 0.47, 0)
+HideB.Size = UDim2.new(0, 200, 0, 20)
+HideB.Font = Enum.Font.GothamBold
+HideB.Text = "Hide Bees"
+HideB.TextColor3 = Color3.new(1, 1, 1)
+HideB.TextSize = 14
+HideB.Visible = false
+
+func.Hide = false
+HideTok.MouseButton1Down:Connect(function()
+if func.Hide then
+      func.Hide = false
+      HideTok.BackgroundColor3 = blue
+else
+      func.Hide = true
+      HideTok.BackgroundColor3 = red
+end
+end)
+
+func.Hideb = false
+HideB.MouseButton1Down:Connect(function()
+if func.Hideb then
+      func.Hideb = false
+      HideB.BackgroundColor3 = blue
+else
+      func.Hideb = true
+      HideB.BackgroundColor3 = red
+end
+end)
+
+func.HideT = coroutine.wrap(function()
+while wait() do
+      if func.Hide then
+            for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
+            v.Transparency = 1
+            if v:FindFirstChild("FrontDecal") then
+            v.FrontDecal.Transparency = 1
+            end
+            if v:FindFirstChild("BackDecal") then
+                  v.BackDecal.Transparency = 1
+                  end
+            
+            end
+            
+            end
+end
+
+end)
+--func.HideT()
 OnlyHoney.Name = "OnlyHoney"
 OnlyHoney.Parent = ExtraPage
 OnlyHoney.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
@@ -2182,8 +2251,7 @@ Welcome.TextSize = 25
 Welcome.TextWrapped = true
 
 -- Scripts:
-local red = Color3.fromRGB(255, 80, 80)
-local blue = Color3.new(0.34902, 0.32549, 1)
+
 
 Ingnore.MouseButton1Down:Connect(function()
 if nothoney then 
@@ -2975,6 +3043,89 @@ end)
 
 noclip = false
 game:GetService('RunService').Stepped:connect(function()
+      if func.Hide then
+            for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
+            v.Transparency = 1
+            if v:FindFirstChild("FrontDecal") then
+            v.FrontDecal.Transparency = 1
+            end
+            if v:FindFirstChild("BackDecal") then
+                  v.BackDecal.Transparency = 1
+                  end
+            
+            end
+            
+            end
+      if func.Hideb then
+      for k,v in pairs(game.Workspace.Bees:GetChildren()) do
+      v.Transparency = 1
+      if v:FindFirstChild("BottomTexture") then
+      v.BottomTexture.Transparency = 1
+      end
+      if v:FindFirstChild("FaceTexture") then
+      v.FaceTexture.Transparency = 1
+      end
+      if v:FindFirstChild("LeftTexture") then
+            v.LeftTexture.Transparency = 1
+            
+      end
+      if v:FindFirstChild("RightTexture") then
+            v.RightTexture.Transparency = 1
+      end
+      if v:FindFirstChild("TopTexture") then
+            v.TopTexture.Transparency = 1
+
+      end
+      if v:FindFirstChild("Wings") then
+            v.Wings.Transparency = 1
+            if v.Wings:FindFirstChild("Decal") then v.Wings.Decal.Transparency = 1 end
+
+      end
+      if v:FindFirstChild("Trail") then
+      v.Trail:Destroy()
+      end
+      if v:FindFirstChild("Spoiler") then
+            v.Spoiler.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Horns") then
+            v.Horns.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Mane") then
+            v.Mane.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Tailpipe") then
+            v.Tailpipe.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Fin") then
+            v.Fin.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Sun") then
+            v.Sun.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Hammer") then
+            v.Hammer.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Tail") then
+            v.Tail.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Ear") then
+            v.Ear.Transparency = 1
+            
+      end
+      if v:FindFirstChild("Note") then
+            v.Note.Transparency = 1
+            
+      end
+end
+      end
 if noclip then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
