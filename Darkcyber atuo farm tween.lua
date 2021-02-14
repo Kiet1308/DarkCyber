@@ -380,11 +380,9 @@ function ProtectUI(UI)
               UI.Parent = get_hidden_gui()
 
           else
-              if Exploit=="KRNL" then
-                  UI.Parent = gethui()
-              else 
+              
                   UI.Parent = game.CoreGui
-              end
+             
 
           end
       end
