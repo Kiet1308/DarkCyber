@@ -2185,7 +2185,7 @@ NameTitle.BackgroundTransparency = 1
 NameTitle.Position = UDim2.new(1, 0, 0, 0)
 NameTitle.Size = UDim2.new(0, 233, 0, 25)
 NameTitle.Font = Enum.Font.GothamBold
-NameTitle.Text = "Bee Swarm Simulator"
+NameTitle.Text = "Bee Swarm Simulator (Kiet script)"
 NameTitle.TextColor3 = Color3.new(1, 1, 1)
 NameTitle.TextSize = 14
 
