@@ -938,7 +938,7 @@ GameText.BackgroundTransparency = 1
 GameText.Position = UDim2.new(0.337588102, 0, -0.0399999991, 0)
 GameText.Size = UDim2.new(0.324587107, 0, 0.999999702, 0)
 GameText.Font = Enum.Font.GothamBold
-GameText.Text = "Bee Swarm Simulator"
+GameText.Text = "Bee Swarm Simulator (Kiet script)"
 GameText.TextColor3 = Color3.new(1, 1, 1)
 GameText.TextSize = 16
 
