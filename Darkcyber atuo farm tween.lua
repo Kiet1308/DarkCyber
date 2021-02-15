@@ -3863,7 +3863,13 @@ local tpos = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.Activate
 if tpos.AbsolutePosition.Y ~= 4 then
 if farming then
 --tpT(game:GetService("Players").LocalPlayer.SpawnPos.Value,0.2)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.SpawnPos.Value
+local sanghuman = player.Character.HumanoidRootPart
+
+--game:GetService("Players").LocalPlayer.Character:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.p)
+local sp = game:GetService("Players").LocalPlayer.SpawnPos.Value.p
+local p =  CFrame.new(sp.X,sp.Y,sp.Z,-0.996,0,0.02,0,1,0,-0.02,0,-0.9) + Vector3.new(0,0,9)
+sanghuman.CFrame = p
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.SpawnPos.Value
 end
 end
 wait(1)
@@ -4056,8 +4062,11 @@ wait(4)
 local sanghuman = player.Character.HumanoidRootPart
 local hotboi = sanghuman.CFrame
 local sangzboi = workspace.FlowerZones[tuoidz].CFrame
+
 --game:GetService("Players").LocalPlayer.Character:MoveTo(game:GetService("Players").LocalPlayer.SpawnPos.Value.p)
-sanghuman.CFrame = game:GetService("Players").LocalPlayer.SpawnPos.Value
+local sp = game:GetService("Players").LocalPlayer.SpawnPos.Value.p
+local p =  CFrame.new(sp.X,sp.Y,sp.Z,-0.996,0,0.02,0,1,0,-0.02,0,-0.9) + Vector3.new(0,0,9)
+sanghuman.CFrame = p
 wait(3)
 game:GetService("ReplicatedStorage").Events.PlayerHiveCommand:FireServer("ToggleHoneyMaking")
 local ticks = tick()
