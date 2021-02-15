@@ -27,7 +27,7 @@ local tool
             end
             function Dig()
                   coroutine.wrap(function()
-                        if getsenv then
+                        if getsenv and not is_sirhurt_closure then
                               local t = getsenv(tool.ClientScriptMouse).collectStart
                                t()
                               else
