@@ -26,13 +26,17 @@ local tool
       end
             end
             function Dig()
-                  if getsenv then
-                  local t = getsenv(tool.ClientScriptMouse).collectStart
-                   t()
-                  else
-                  tool.ClickEvent:FireServer()
-
-                  end
+                  coroutine.wrap(function()
+                        if getsenv then
+                              local t = getsenv(tool.ClientScriptMouse).collectStart
+                               t()
+                              else
+                              tool.ClickEvent:FireServer()
+            
+                              end
+                  
+                  end)()
+                  
                   end
 
 
