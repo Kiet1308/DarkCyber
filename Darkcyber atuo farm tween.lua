@@ -26,7 +26,13 @@ local tool
       end
             end
             function Dig()
+                  if getsenv then
+                  local t = getsenv(tool.ClientScriptMouse).collectStart
+                   t()
+                  else
                   tool.ClickEvent:FireServer()
+
+                  end
                   end
 
 
@@ -3375,14 +3381,9 @@ Autodig.MouseButton1Down:connect(function()
       AutoDig = true 
       Autodig.BackgroundColor3 = red
       while AutoDig do
-            wait(0.5)
+            wait(0.1)
             
- for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
-      if v:IsA("Tool") then 
-            v.ClickEvent:FireServer()
-      
-      end
-            end
+ Dig()
             end
 else 
       AutoDig = false
