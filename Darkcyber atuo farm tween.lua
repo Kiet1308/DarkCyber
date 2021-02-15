@@ -703,7 +703,7 @@ else if TypeFarming=="Walking" then
       Dig()
       if tick()-a>=5 then
             Humanoid:Move(Vector3.new(0, 0, 0)) 
-            --Character.HumanoidRootPart.CFrame = game.Workspace.FlowerZones[tuoidz].CFrame
+            Character.HumanoidRootPart.CFrame = t
             stop = true
             --wait(1)
        end
