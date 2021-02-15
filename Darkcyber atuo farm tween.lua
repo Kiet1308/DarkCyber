@@ -709,7 +709,31 @@ else if TypeFarming=="Walking" then
        end
       end
 else
-      WalkToHive(t)
+      local Players = game:GetService("Players")
+      local Character = Players.LocalPlayer.Character
+      local Humanoid = Character.Humanoid
+      local stop = false
+      Humanoid:MoveTo(t.p)
+      Humanoid.MoveToFinished:Connect(function() 
+      stop = true
+      end)
+      local a = tick()
+      while (stop == false)do
+      Humanoid.WalkSpeed = 100
+      wait()
+      if act6temp then
+      Humanoid:Move(Vector3.new(0, 0, 0))
+      stop = true
+      
+      end
+      Dig()
+      if tick()-a>=5 then
+            Humanoid:Move(Vector3.new(0, 0, 0)) 
+            Character.HumanoidRootPart.CFrame = t
+            stop = true
+            --wait(1)
+       end
+      end
 
 end
 end
@@ -763,10 +787,10 @@ WalkBtn2.BorderSizePixel = 0
 WalkBtn2.Position = UDim2.new(0.3264150947, 0, 0.2853963569, 0)
 WalkBtn2.Size = UDim2.new(0, 98, 0, 20)
 WalkBtn2.Font = Enum.Font.GothamBold
-WalkBtn2.Text = "Walk Farm 2"
+WalkBtn2.Text = "Walk Farm Fast"
 WalkBtn2.TextColor3 = Color3.new(1, 1, 1)
 WalkBtn2.TextSize = 14
-WalkBtn2.Visible = false
+
 
 
 TypeF.Name = "TypeF"
@@ -2341,7 +2365,7 @@ WalkBtn.MouseButton1Down:Connect(function()
 end)
 WalkBtn2.MouseButton1Down:Connect(function()
       TypeFarming = "Walking2"
-      TypeF.Text = "Type farming: Walking2"
+      TypeF.Text = "Type farming: Walking Fast"
 
 end)
 
