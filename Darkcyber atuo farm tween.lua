@@ -3859,7 +3859,14 @@ local act6temp = false
 local act5 = false
 
 
-
+func.SellDig = coroutine.wrap(function()
+while wait() do
+if selling then
+Dig()
+end
+end
+end)
+func.SellDig()
 func.SellFix = coroutine.wrap(function()
 while wait() do
 if selling then
@@ -4029,18 +4036,9 @@ end
 wait(.1)
 until not act6 or act6temp
 end)
-local jimmy2 = coroutine.wrap(function()
-for k,v in pairs(workspace[player.Name]:GetChildren()) do
-if v.ClassName == "Tool" then
-repeat
-v.ClickEvent:FireServer()
-wait(.1)
-until not act6 or act6temp
-end
-end
-end)
+
 jimmy()
-jimmy2()
+
 end
 StartButton.MouseButton1Down:connect(function()
 if act6 == true then
