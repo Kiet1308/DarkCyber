@@ -945,7 +945,7 @@ FarmBublle.BorderSizePixel = 0
 FarmBublle.Position = UDim2.new(0.016, 0, 0.37, 0)
 FarmBublle.Size = UDim2.new(0, 200, 0, 20)
 FarmBublle.Font = Enum.Font.GothamBold
-FarmBublle.Text = "Auto Farm Bubble Float"
+FarmBublle.Text = "Auto Farm Bubble Bloat"
 FarmBublle.TextColor3 = Color3.new(1, 1, 1)
 FarmBublle.TextSize = 14
 
