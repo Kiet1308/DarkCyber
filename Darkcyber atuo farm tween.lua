@@ -39,7 +39,11 @@ local tool
                         
                         end)
                        if e then
-                        tool.ClickEvent:FireServer()
+                        pcall(function()
+                              tool.ClickEvent:FireServer()
+
+                        
+                        end)
 
                         end
                   
