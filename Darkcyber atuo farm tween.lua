@@ -27,13 +27,21 @@ local tool
             end
             function Dig()
                   coroutine.wrap(function()
-                        if getsenv and not is_sirhurt_closure then
-                              local t = getsenv(tool.ClientScriptMouse).collectStart
-                               t()
-                              else
-                              tool.ClickEvent:FireServer()
-            
-                              end
+                        local s,e = pcall(function()
+                        
+                              if getsenv and not is_sirhurt_closure then
+                                    local t = getsenv(tool.ClientScriptMouse).collectStart
+                                     t()
+                                    else
+                                          tool.ClickEvent:FireServer()
+                  
+                                    end
+                        
+                        end)
+                       if e then
+                        tool.ClickEvent:FireServer()
+
+                        end
                   
                   end)()
                   
