@@ -4027,7 +4027,13 @@ local jimmy = coroutine.wrap(function()
                         local times = 0.2
 				if nothoney then
 				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
-				tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+                              if TypeFarming=="Tp" then
+                                    sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                    wait(.1)
+                              else
+                                    tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+
+                              end
                         Dig()
 				end
 				else
