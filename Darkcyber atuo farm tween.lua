@@ -18,18 +18,19 @@ local autopolar = false
 
 
 function KLDC()
-local tool
+
+            function Dig()
+                  local tool
  for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do 
       if v:IsA("Tool") then 
             tool = v
       
       end
             end
-            function Dig()
                   coroutine.wrap(function()
                         local s,e = pcall(function()
                         
-                              if getsenv and not is_sirhurt_closure then
+                              if getsenv and not is_sirhurt_closure then -- Sirhurt argggg
                                     local t = getsenv(tool.ClientScriptMouse).collectStart
                                      t()
                                     else
@@ -41,8 +42,6 @@ local tool
                        if e then
                         pcall(function()
                               tool.ClickEvent:FireServer()
-
-                        
                         end)
 
                         end
@@ -137,10 +136,11 @@ local fieldmob = {
 function CheckMob(field)
       local rootpart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
       local old = rootpart.CFrame
-      rootpart.CFrame=game.Workspace.FlowerZones[field].CFrame
-      
+      --rootpart.CFrame=game.Workspace.FlowerZones[field].CFrame
+      tp(game.Workspace.FlowerZones[field].CFrame)
       wait(.5)
       if string.match(field,"Cactus") then wait(2) end
+      if string.match(field,"Blue") then wait(2) end
       for k,v in pairs(game.Workspace.Monsters:GetChildren()) do
           if v:FindFirstChild("Head") then 
           if (game.Workspace.FlowerZones[field].CFrame.p-v.Head.Position).magnitude <= 60 then rootpart.CFrame = old; return true end
@@ -4033,11 +4033,23 @@ local jimmy = coroutine.wrap(function()
 				else
                         if onlyhoney then 
                               if v.FrontDecal.Texture == HoneyBeeDecal and farming then
-                                    tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+                                    if TypeFarming=="Tp" then
+                                          sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                          wait(.1)
+                                    else
+                                          tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+
+                                    end
                               end
                         else
                               if farming then
-                              tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+                                    if TypeFarming=="Tp" then
+                                          sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                          wait(.1)
+                                    else
+                                          tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+
+                                    end
                               Dig()
                               end
                         end
