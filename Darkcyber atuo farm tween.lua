@@ -994,7 +994,7 @@ VersionText.BackgroundTransparency = 1
 VersionText.Position = UDim2.new(-0.00158959627, 0, 0.914668798, 0)
 VersionText.Size = UDim2.new(0.213481352, 0, 0.08324752, 0)
 VersionText.Font = Enum.Font.GothamBold
-VersionText.Text = "Version: 1.0.0"
+VersionText.Text = "Version: 2.0.0"
 VersionText.TextColor3 = Color3.new(1, 1, 1)
 VersionText.TextSize = 16
 
