@@ -4,6 +4,11 @@
 local red = Color3.fromRGB(255, 80, 80)
 local blue = Color3.new(0.34902, 0.32549, 1)
 
+local TypeFarming = "Tween"
+
+local times = 0.2
+if _G.times then times  = _G.times end 
+
 local selling = false
 
 local farming = false
@@ -656,7 +661,7 @@ local onlyhoney = false
 local nothoney = false
 local farmbubble = false
 --local automob = false
-local TypeFarming = "Tween"
+
 
 function tpT(t,k) 
 
@@ -698,6 +703,35 @@ function tpT(t,k)
 
 end
 
+function Walkk(t,Call) 
+      local Players = game:GetService("Players")
+      local Character = Players.LocalPlayer.Character
+      local Humanoid = Character.Humanoid
+      local stop = false
+      Humanoid:MoveTo(t.p)
+      Humanoid.MoveToFinished:Connect(function() 
+      stop = true
+      end)
+      local a = tick()
+      while (stop == false)do
+      if Call then Call() end
+      wait()
+      if act6temp then
+      Humanoid:Move(Vector3.new(0, 0, 0))
+      stop = true
+      
+      end
+      Dig()
+      if tick()-a>=5 then
+            Humanoid:Move(Vector3.new(0, 0, 0)) 
+            Character.HumanoidRootPart.CFrame = t
+            stop = true
+            --wait(1)
+       end
+      end
+
+end
+
 
 function tp(t,k)
  if TypeFarming == "Tween" then 
@@ -710,56 +744,16 @@ else if TypeFarming=="Walking" then
       --game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(t.Position.X,t.Position.Y,t.Position.Z))
       --game:GetService("Players").LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
       --WalkToHive(t)
-      local Players = game:GetService("Players")
-      local Character = Players.LocalPlayer.Character
-      local Humanoid = Character.Humanoid
-      local stop = false
-      Humanoid:MoveTo(t.p)
-      Humanoid.MoveToFinished:Connect(function() 
-      stop = true
-      end)
-      local a = tick()
-      while (stop == false)do
-      wait()
-      if act6temp then
-      Humanoid:Move(Vector3.new(0, 0, 0))
-      stop = true
-      
-      end
-      Dig()
-      if tick()-a>=5 then
-            Humanoid:Move(Vector3.new(0, 0, 0)) 
-            Character.HumanoidRootPart.CFrame = t
-            stop = true
-            --wait(1)
-       end
-      end
+     Walkk(t)
 else
-      local Players = game:GetService("Players")
-      local Character = Players.LocalPlayer.Character
-      local Humanoid = Character.Humanoid
-      local stop = false
-      Humanoid:MoveTo(t.p)
-      Humanoid.MoveToFinished:Connect(function() 
-      stop = true
+      Walkk(t,function() 
+            local Players = game:GetService("Players")
+            local Character = Players.LocalPlayer.Character
+            local Humanoid = Character.Humanoid
+            Humanoid.WalkSpeed = 100
       end)
-      local a = tick()
-      while (stop == false)do
-      Humanoid.WalkSpeed = 100
-      wait()
-      if act6temp then
-      Humanoid:Move(Vector3.new(0, 0, 0))
-      stop = true
       
-      end
-      Dig()
-      if tick()-a>=5 then
-            Humanoid:Move(Vector3.new(0, 0, 0)) 
-            Character.HumanoidRootPart.CFrame = t
-            stop = true
-            --wait(1)
-       end
-      end
+     
 
 end
 end
@@ -4018,7 +4012,7 @@ local jimmy = coroutine.wrap(function()
             if act6temp then break; end
             if onlyhoney then break; end
             if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
-			tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
+			tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
                   Dig()
 		end
 		end
@@ -4027,7 +4021,7 @@ local jimmy = coroutine.wrap(function()
                   if act6temp then break; end
                   if onlyhoney then break; end
                   if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
-                        tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
+                        tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
                         Dig()
                   end
                   end
@@ -4039,7 +4033,7 @@ local jimmy = coroutine.wrap(function()
 						if v:FindFirstChild("FrontDecal") then
 				--if v.FrontDecal.Texture == HoneyBeeDecal then
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
-                        local times = 0.2 
+                        
 				if nothoney then
 				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
                               if TypeFarming=="Tp" then
