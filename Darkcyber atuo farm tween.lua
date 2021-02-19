@@ -136,8 +136,8 @@ local fieldmob = {
 function CheckMob(field)
       local rootpart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
       local old = rootpart.CFrame
-      --rootpart.CFrame=game.Workspace.FlowerZones[field].CFrame
-      tp(game.Workspace.FlowerZones[field].CFrame)
+      rootpart.CFrame=game.Workspace.FlowerZones[field].CFrame
+      --tp(game.Workspace.FlowerZones[field].CFrame)
       wait(.5)
       if string.match(field,"Cactus") then wait(2) end
       if string.match(field,"Blue") then wait(2) end
@@ -291,7 +291,7 @@ local rootpart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPa
 for k,v in pairs(fieldlist) do
 --print(CheckMob(v))
 if CheckMob(v) == true then
-
+if automob then
 rootpart.CFrame=game.Workspace.FlowerZones[v].CFrame
 while(CheckMob(v) == true) do
 if automob==false then break end
@@ -314,6 +314,7 @@ end
 
 end
 
+end
 end
 end
 end
@@ -2535,6 +2536,7 @@ Destroy.MouseLeave:Connect(function()
 Destroy.TextColor3 = Color3.new(255,255,255)
 end)
 
+
 Close.MouseButton1Down:Connect(function()
 if Close.Text == "-" then
       MainPage.Visible = false 
@@ -4024,7 +4026,7 @@ local jimmy = coroutine.wrap(function()
 						if v:FindFirstChild("FrontDecal") then
 				--if v.FrontDecal.Texture == HoneyBeeDecal then
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
-                        local times = 0.2
+                        local times = 0.2 
 				if nothoney then
 				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
                               if TypeFarming=="Tp" then
