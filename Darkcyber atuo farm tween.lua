@@ -1,6 +1,9 @@
 -- Walking time out: 5s
 
--- 
+--
+
+
+
 local red = Color3.fromRGB(255, 80, 80)
 local blue = Color3.new(0.34902, 0.32549, 1)
 
@@ -20,7 +23,62 @@ local debug = true
 local automob = false
 
 local autopolar = false
-
+function God() 
+      local cam = workspace.CurrentCamera
+      local cf = cam.CFrame
+      local me = game.Players.LocalPlayer
+      local c, h = (me.Character or workspace:FindFirstChild(me.Name)), me.Character:FindFirstChildOfClass("Humanoid")
+      local nh = h:Clone()
+      nh.Health = nh.MaxHealth
+      me.Character = nil
+      nh:SetStateEnabled(15, false)
+      nh:SetStateEnabled(1, false)
+      nh:SetStateEnabled(0, false)
+      nh.Parent = c
+      h:Destroy()
+      me.Character, cam.CameraSubject = c, nh
+      wait()
+      cam.CFrame = cf
+      local s = c:FindFirstChild("Animate")
+      if s then
+          s.Disabled = true
+          wait()
+          s.Disabled = false
+      end
+      delay(1, function()
+          if nh then
+              nh.Health = 0X100
+          end
+      end)
+  end
+  function UnGod()
+      local cam = workspace.CurrentCamera
+      local cf = cam.CFrame
+      local me = game.Players.LocalPlayer
+      local c, h = (me.Character or workspace:FindFirstChild(me.Name)), me.Character:FindFirstChildOfClass("Humanoid")
+      local nh = h:Clone()
+      nh.Health = nh.MaxHealth
+      me.Character = nil
+      nh:SetStateEnabled(15, true)
+      nh:SetStateEnabled(1, true)
+      nh:SetStateEnabled(0, true)
+      nh.Parent = c
+      h:Destroy()
+      me.Character, cam.CameraSubject = c, nh
+      wait()
+      cam.CFrame = cf
+      local s = c:FindFirstChild("Animate")
+      if s then
+          s.Disabled = false
+          wait()
+          s.Disabled = true
+      end
+      delay(1, function()
+          if nh then
+              nh.Health = 0
+          end
+      end)
+  end
 
 function KLDC()
 
@@ -889,10 +947,10 @@ HideB.BorderSizePixel = 0
 HideB.Position = UDim2.new(0.4, 0, 0.47, 0)
 HideB.Size = UDim2.new(0, 200, 0, 20)
 HideB.Font = Enum.Font.GothamBold
-HideB.Text = "Hide Bees"
+HideB.Text = "God Mod"
 HideB.TextColor3 = Color3.new(1, 1, 1)
 HideB.TextSize = 14
-HideB.Visible = false
+
 
 func.Hide = false
 HideTok.MouseButton1Down:Connect(function()
@@ -910,9 +968,11 @@ HideB.MouseButton1Down:Connect(function()
 if func.Hideb then
       func.Hideb = false
       HideB.BackgroundColor3 = blue
+      UnGod()
 else
       func.Hideb = true
       HideB.BackgroundColor3 = red
+      God()
 end
 end)
 
