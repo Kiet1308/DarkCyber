@@ -947,7 +947,7 @@ HideB.BorderSizePixel = 0
 HideB.Position = UDim2.new(0.4, 0, 0.47, 0)
 HideB.Size = UDim2.new(0, 200, 0, 20)
 HideB.Font = Enum.Font.GothamBold
-HideB.Text = "God Mod"
+HideB.Text = "God Mode"
 HideB.TextColor3 = Color3.new(1, 1, 1)
 HideB.TextSize = 14
 
