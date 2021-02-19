@@ -3906,7 +3906,7 @@ local act5 = false
 
 func.SellDig = coroutine.wrap(function()
 while wait() do
-if selling then
+if selling or farming then
 Dig()
 end
 end
@@ -4008,23 +4008,7 @@ local jimmy = coroutine.wrap(function()
       wait(.1)
       else 
             Dig()
-            for k,v in pairs(GetTokenLink()) do
-            if act6temp then break; end
-            if onlyhoney then break; end
-            if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
-			tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
-                  Dig()
-		end
-		end
-
-            for k,v in pairs(GetToken("Star")) do
-                  if act6temp then break; end
-                  if onlyhoney then break; end
-                  if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
-                        tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
-                        Dig()
-                  end
-                  end
+            
         for k,v in pairs(workspace.Collectibles:GetChildren()) do
             if act6temp then break; end
             if tostring(v) == tostring(game.Players.LocalPlayer.Name) or tostring(v) == "C" then
@@ -4033,8 +4017,37 @@ local jimmy = coroutine.wrap(function()
 						if v:FindFirstChild("FrontDecal") then
 				--if v.FrontDecal.Texture == HoneyBeeDecal then
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
+                if not onlyhoney then
+
+                              local s = GetTokenLink()
+                              for b,t in pairs(s) do
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
+                                          if TypeFarming=="Tp" then
+                                                sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
+                                                wait(.1)
+                                          else
+                                                tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
+            
+                                          end
+                                          Dig()
+                                    end
+                              end
+
+                              for k,t in pairs(GetToken("Star")) do
+                                   
+                                    if TypeFarming=="Tp" then
+                                          sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
+                                          wait(.1)
+                                    else
+                                          tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
+      
+                                    end
+                                    end
+                              
                         
+                  end
 				if nothoney then
+                        if v:FindFirstChild("FrontDecal") then
 				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
                               if TypeFarming=="Tp" then
                                     sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4045,8 +4058,10 @@ local jimmy = coroutine.wrap(function()
                               end
                         Dig()
 				end
+                  end
 				else
-                        if onlyhoney then 
+                        if onlyhoney then
+                              if v:FindFirstChild("FrontDecal") then 
                               if v.FrontDecal.Texture == HoneyBeeDecal and farming then
                                     if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4056,6 +4071,7 @@ local jimmy = coroutine.wrap(function()
 
                                     end
                               end
+                        end
                         else
                               if farming then
                                     if TypeFarming=="Tp" then
