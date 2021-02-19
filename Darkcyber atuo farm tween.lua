@@ -313,7 +313,13 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
       if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then
             if automob then
             --rootpart.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
-            tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),0.2)
+            if TypeFarming=="Tp" then
+                  sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                  wait(.1)
+            else
+                  tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+
+            end
             wait()
             end
       end
