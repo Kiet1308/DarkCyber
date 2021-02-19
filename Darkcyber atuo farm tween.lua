@@ -3169,76 +3169,8 @@ game:GetService('RunService').Stepped:connect(function()
             end
             
             end
-      if func.Hideb then
-      for k,v in pairs(game.Workspace.Bees:GetChildren()) do
-      v.Transparency = 1
-      if v:FindFirstChild("BottomTexture") then
-      v.BottomTexture.Transparency = 1
-      end
-      if v:FindFirstChild("FaceTexture") then
-      v.FaceTexture.Transparency = 1
-      end
-      if v:FindFirstChild("LeftTexture") then
-            v.LeftTexture.Transparency = 1
-            
-      end
-      if v:FindFirstChild("RightTexture") then
-            v.RightTexture.Transparency = 1
-      end
-      if v:FindFirstChild("TopTexture") then
-            v.TopTexture.Transparency = 1
+      
 
-      end
-      if v:FindFirstChild("Wings") then
-            v.Wings.Transparency = 1
-            if v.Wings:FindFirstChild("Decal") then v.Wings.Decal.Transparency = 1 end
-
-      end
-      if v:FindFirstChild("Trail") then
-      v.Trail:Destroy()
-      end
-      if v:FindFirstChild("Spoiler") then
-            v.Spoiler.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Horns") then
-            v.Horns.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Mane") then
-            v.Mane.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Tailpipe") then
-            v.Tailpipe.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Fin") then
-            v.Fin.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Sun") then
-            v.Sun.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Hammer") then
-            v.Hammer.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Tail") then
-            v.Tail.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Ear") then
-            v.Ear.Transparency = 1
-            
-      end
-      if v:FindFirstChild("Note") then
-            v.Note.Transparency = 1
-            
-      end
-end
-      end
 if noclip then
 game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
