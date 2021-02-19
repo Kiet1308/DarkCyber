@@ -296,10 +296,11 @@ local fieldlist = {
 local rootpart = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
 for k,v in pairs(fieldlist) do
 --print(CheckMob(v))
+if automob == false then break end
 if CheckMob(v) == true then
 if automob then
 rootpart.CFrame=game.Workspace.FlowerZones[v].CFrame
-while(CheckMob(v) == true) do
+while(CheckMob(v) == true and automob) do
 if automob==false then break end
 
 end
