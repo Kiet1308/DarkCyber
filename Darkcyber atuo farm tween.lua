@@ -6,7 +6,7 @@
 
 local red = Color3.fromRGB(255, 80, 80)
 local blue = Color3.new(0.34902, 0.32549, 1)
-
+local memo = false
 local TypeFarming = "Tween"
 
 local times = 0.2
@@ -711,7 +711,7 @@ local Mobbtn = Instance.new("TextButton")
 local AutoPolar = Instance.new("TextButton")
 local HideTok = Instance.new("TextButton")
 local HideB = Instance.new("TextButton")
-
+local MemoryCheat = Instance.new("TextButton")
 
 
 
@@ -940,6 +940,38 @@ HideTok.Text = "Hide Tokens"
 HideTok.TextColor3 = Color3.new(1, 1, 1)
 HideTok.TextSize = 14
 
+MemoryCheat.Name = "MemoryCheat"
+MemoryCheat.Parent = ExtraPage
+MemoryCheat.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
+MemoryCheat.BorderSizePixel = 0
+MemoryCheat.Position = UDim2.new(0.016, 0, 0.52, 0)
+MemoryCheat.Size = UDim2.new(0, 400, 0, 20)
+MemoryCheat.Font = Enum.Font.GothamBold
+MemoryCheat.Text = "Memory match Cheat (Credit: Grut Hub)"
+MemoryCheat.TextColor3 = Color3.new(1, 1, 1)
+MemoryCheat.TextSize = 14
+
+func.Memo = coroutine.wrap(function()
+      while wait() do
+            if memo then
+                  
+                        
+               for i,v in pairs(game.Players.LocalPlayer.PlayerGui.ScreenGui:WaitForChild("MinigameLayer"):GetChildren()) do
+                     for k,q in pairs(v:WaitForChild("GuiGrid"):GetDescendants()) do
+                         if q.Name == "ObjContent" or q.Name == "ObjImage" then
+                              q.Visible = true
+                              end
+                         end
+                     end
+                        
+            
+            
+            end
+      end
+
+
+end)
+func.Memo()
 HideB.Name = "HideB"
 HideB.Parent = ExtraPage
 HideB.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
@@ -2427,6 +2459,19 @@ Mobbtn.MouseButton1Down:Connect(function()
            else
                  AutoPolar.BackgroundColor3 = red
            autopolar = true
+           end
+                 
+                 
+                 
+           end)
+
+           MemoryCheat.MouseButton1Down:Connect(function()
+            if memo then 
+                 MemoryCheat.BackgroundColor3 = blue
+           memo = false
+           else
+                 MemoryCheat.BackgroundColor3 = red
+           memo = true
            end
                  
                  
