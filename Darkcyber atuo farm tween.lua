@@ -1042,7 +1042,12 @@ GameText.BackgroundTransparency = 1
 GameText.Position = UDim2.new(0.337588102, 0, -0.0399999991, 0)
 GameText.Size = UDim2.new(0.324587107, 0, 0.999999702, 0)
 GameText.Font = Enum.Font.GothamBold
-GameText.Text = "Bee Swarm Simulator (Kiet script)"
+if getsenv then
+      GameText.Text = "Bee Swarm Simulator (Kiet scripts)"
+else
+      GameText.Text = "Bee Swarm Simulator (Kiet scriptt)"
+end
+
 GameText.TextColor3 = Color3.new(1, 1, 1)
 GameText.TextSize = 16
 
@@ -4071,7 +4076,7 @@ local jimmy = coroutine.wrap(function()
                                           wait(.1)
                                     else
                                           tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
-
+                                         
                                     end
                               Dig()
                               end
