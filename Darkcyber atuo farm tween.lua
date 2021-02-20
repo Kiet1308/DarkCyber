@@ -803,14 +803,17 @@ else if TypeFarming=="Walking" then
       --game:GetService("Players").LocalPlayer.Character.Humanoid.MoveToFinished:Wait()
       --WalkToHive(t)
      Walkk(t)
-else
+else 
+      
+      local Players = game:GetService("Players")
+      local Character = Players.LocalPlayer.Character
+      local Humanoid = Character.Humanoid
+      local speed  = Humanoid.WalkSpeed
       Walkk(t,function() 
-            local Players = game:GetService("Players")
-            local Character = Players.LocalPlayer.Character
-            local Humanoid = Character.Humanoid
+           
             Humanoid.WalkSpeed = 100
       end)
-      
+      Humanoid.WalkSpeed = speed
      
 
 end
