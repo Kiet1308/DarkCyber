@@ -2,12 +2,46 @@
 
 --
 
+function TpTokenTween(token,k)
+      if k == nil then k=1 end
+      local plr = game:service"Players".LocalPlayer;
+      local tween_s = game:service"TweenService";
+      local info = TweenInfo.new(k,Enum.EasingStyle.Quad);
+      local tic_k = tick();
+     --local params = {...};
+     --local cframe = CFrame.new(params[1],params[2],params[3]);
+     local cframe = t;
+     local tween,err = pcall(function()
+         local tween = tween_s:Create(plr.Character["HumanoidRootPart"],info,{CFrame=token.CFrame});
+         local done = false;
+         --print(done)
+         tween.Completed:Connect(function() 
+            done=true;
+         end)
+           --noclip = true
+         tween:Play();
+         while(done==false) do
+            wait()
+            if token:FindFirstChild("FrontDecal") then else done=true end
+          --print(tostring(done.."k"))
+         
+         end
+           --noclip = false
+        -- print(done)
+         
+         
+     end)
+     --syn.write_clipboard(err)
+     --print(err)
+     if not tween then return err end
 
+
+end
 
 local red = Color3.fromRGB(255, 80, 80)
 local blue = Color3.new(0.34902, 0.32549, 1)
 local memo = false
-local TypeFarming = "Tween"
+local TypeFarming = "Walking"
 
 local times = 0.2
 if _G.times then times  = _G.times end 
@@ -881,7 +915,7 @@ TypeF.BorderSizePixel = 0
 TypeF.Position = UDim2.new(0.0264150947, 0, 0.2853963569, 0)
 TypeF.Size = UDim2.new(0, 98, 0, 20)
 TypeF.Font = Enum.Font.GothamBold
-TypeF.Text = "Type farming: Tween"
+TypeF.Text = "Type farming: Walking"
 TypeF.TextColor3 = Color3.new(1, 1, 1)
 TypeF.TextSize = 14
 
@@ -3134,10 +3168,11 @@ while wait() do
             if v:FindFirstChild("FrontDecal") then 
             if v.FrontDecal.Texture == snowflakes then
             if snowflake==true then
-           -- game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X,v.Position.Y,v.Position.Z)
+            --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame ---CFrame.new(v.Position.X,v.Position.Y,v.Position.Z)
             --wait(1)
             tpT(CFrame.new(v.Position.X,v.Position.Y,v.Position.Z),0.2)
-            wait(.3)
+            --TpTokenTween(v,0.2)
+            wait(.2)
             end
             end
             
