@@ -3275,9 +3275,11 @@ Killcoconutcrab.MouseButton1Down:connect(function()
              
       
       Killcoconutcrab.BackgroundColor3 = red
-      killcoconut = true 
+      killcoconut = true
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-367.055786, 111.078384, 536.868652, 0.967295885, -1.81630276e-06, 0.253650427, -9.20609364e-06, 1, 4.22681369e-05, -0.253650427, -4.32209345e-05, 0.967295885)
+      wait(3) 
       noclip = true
-      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-256.375092, 112.547897, 500.457794, 0.998952866, -0.0450557806, 0.00794458669, -8.64538929e-09, 0.173648775, 0.98480767, -0.0457508452, -0.98377645, 0.173466951)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-261.811249, 115.952774, 503.228455, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 else 
       killcoconut = false 
       noclip = false
