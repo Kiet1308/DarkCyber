@@ -3264,12 +3264,21 @@ game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
 end)
 
-
-
-
-
-
 local killcoconut = false
+
+
+
+-- func.Coco = coroutine.wrap(function()
+-- while wait() do
+--       if killcoconut then
+            
+--       end
+
+-- end
+
+-- end)
+
+
 Killcoconutcrab.MouseButton1Down:connect(function()
       if killcoconut == false then 
              
@@ -4156,6 +4165,7 @@ local jimmy = coroutine.wrap(function()
                         end
                         else
                               if farming then
+                              if v:FindFirstChild("FrontDecal") then
                                     if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                                           wait(.1)
@@ -4165,6 +4175,7 @@ local jimmy = coroutine.wrap(function()
                                     end
                               Dig()
                               end
+                        end
                         end
 				
 
