@@ -24,7 +24,7 @@ local TokenId =
 function GetTokenLink()
       local t = {}
       local i = 0
-      for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
+      for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
       
       if v:FindFirstChild("FrontDecal") then 
       if v.FrontDecal.Texture == TokenId["TokenLink"] then
@@ -42,7 +42,7 @@ function GetTokenLink()
       function GetToken(TokenIdd)
             local t = {}
             local i = 0
-            for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
+            for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             
             if v:FindFirstChild("FrontDecal") then 
             if v.FrontDecal.Texture == TokenId[TokenIdd] then
