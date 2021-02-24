@@ -350,7 +350,7 @@ function CollectAllTokenInField(Field)
                         local s = GetTokenLink()
                               for b,t in pairs(s) do
                                     if t:FindFirstChild("FrontDecal") then
-                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 then
                                           if TypeFarming=="Tp" then
                                                 sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
                                                 wait(.1)
@@ -364,6 +364,8 @@ function CollectAllTokenInField(Field)
                               end
                               for k,t in pairs(GetToken("Star")) do
                                     if t:FindFirstChild("FrontDecal") then
+                                          if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 then
+
                                       if TypeFarming=="Tp" then
                                            sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
                                            wait(.1)
@@ -372,6 +374,7 @@ function CollectAllTokenInField(Field)
        
                                      end
                                      end
+                                    end
                                end
                   if TypeFarming=="Tp" then
                         sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -494,7 +497,7 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
                   local s = GetTokenLink()
                               for b,t in pairs(s) do
                                     if t:FindFirstChild("FrontDecal") then
-                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 then
                                           if TypeFarming=="Tp" then
                                                 sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
                                                 wait(.1)
@@ -4172,6 +4175,7 @@ local jimmy = coroutine.wrap(function()
 
                               for k,t in pairs(GetToken("Star")) do
                                    if t:FindFirstChild("FrontDecal") then
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
                                      if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
                                           wait(.1)
@@ -4179,6 +4183,7 @@ local jimmy = coroutine.wrap(function()
                                           tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
       
                                     end
+                              end
                                     end
                               end
                               
