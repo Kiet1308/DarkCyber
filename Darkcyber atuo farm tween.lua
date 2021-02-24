@@ -1,7 +1,60 @@
 -- Walking time out: 5s
 
 --
-
+local TokenId = 
+{
+	["TokenLink"] = "rbxassetid://1629547638",
+      ["BlueBomb"] = "rbxassetid://1442725244",
+      ["BlueBomb+"] = "rbxassetid://1442764904",
+      ["Frog"] = "http://www.roblox.com/asset/?id=4528414666",
+      ["Ticket"] = "rbxassetid://1674871631",
+      ["Glue"] = "rbxassetid://2504978518",
+      ["Pineapple"] = "rbxassetid://1952796032",
+      ["Strawberry"] = "rbxassetid://1952740625",
+      ["BlueBoost"] = "rbxassetid://1442863423",
+      ["Blueberry"] = "rbxassetid://2028453802" ,
+      ["SunflowerSeed"] = "rbxassetid://1952682401",
+      ["Treat"] = "rbxassetid://2028574353",
+      ["Snowflake"] = "rbxassetid://6087969886",
+      ["Gumdrop"] = "rbxassetid://1838129169",
+      ["Micro"] = "rbxassetid://2863122826",
+      ["Star"] = "rbxassetid://2000457501",
+      ["Bear1"] = "rbxassetid://1472532912"
+}
+function GetTokenLink()
+      local t = {}
+      local i = 0
+      for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
+      
+      if v:FindFirstChild("FrontDecal") then 
+      if v.FrontDecal.Texture == TokenId["TokenLink"] then
+      t[i] = v
+      end
+      
+      end
+      i = i+1
+      end
+      return t
+      
+      
+      end
+      
+      function GetToken(TokenId)
+            local t = {}
+            local i = 0
+            for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
+            
+            if v:FindFirstChild("FrontDecal") then 
+            if v.FrontDecal.Texture == TokenId[id] then
+            t[i] = v
+            end
+            
+            end
+            i = i+1
+            end
+            return t
+      end
+      
 function TpTokenTween(token,k)
       if k == nil then k=1 end
       local plr = game:service"Players".LocalPlayer;
@@ -294,6 +347,32 @@ function CollectAllTokenInField(Field)
             if ( (v.Position-sangzboi.p).magnitude <= 60) and ((sanghuman.Position-v.Position).magnitude<=60) then
                   --local old = act6temp
                   if v:FindFirstChild("FrontDecal") then
+                        local s = GetTokenLink()
+                              for b,t in pairs(s) do
+                                    if t:FindFirstChild("FrontDecal") then
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
+                                          if TypeFarming=="Tp" then
+                                                sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
+                                                wait(.1)
+                                          else
+                                                tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
+            
+                                          end
+                                          Dig()
+                                    end
+                              end
+                              end
+                              for k,t in pairs(GetToken("Star")) do
+                                    if t:FindFirstChild("FrontDecal") then
+                                      if TypeFarming=="Tp" then
+                                           sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
+                                           wait(.1)
+                                     else
+                                           tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
+       
+                                     end
+                                     end
+                               end
                   if TypeFarming=="Tp" then
                         sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                         wait(.1)
@@ -412,6 +491,21 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             if automob then
             --rootpart.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
             if v:FindFirstChild("FrontDecal") then
+                  local s = GetTokenLink()
+                              for b,t in pairs(s) do
+                                    if t:FindFirstChild("FrontDecal") then
+                                    if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
+                                          if TypeFarming=="Tp" then
+                                                sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
+                                                wait(.1)
+                                          else
+                                                tp(CFrame.new(t.Position.x, sanghuman.Position.y, t.Position.z),times)
+            
+                                          end
+                                          Dig()
+                                    end
+                              end
+                              end
             if TypeFarming=="Tp" then
                   sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                   wait(.1)
@@ -529,26 +623,7 @@ if string.find(v.Name,"") then
 v:Destroy()
 end
 end 
-local TokenId = 
-{
-	["TokenLink"] = "rbxassetid://1629547638",
-      ["BlueBomb"] = "rbxassetid://1442725244",
-      ["BlueBomb+"] = "rbxassetid://1442764904",
-      ["Frog"] = "http://www.roblox.com/asset/?id=4528414666",
-      ["Ticket"] = "rbxassetid://1674871631",
-      ["Glue"] = "rbxassetid://2504978518",
-      ["Pineapple"] = "rbxassetid://1952796032",
-      ["Strawberry"] = "rbxassetid://1952740625",
-      ["BlueBoost"] = "rbxassetid://1442863423",
-      ["Blueberry"] = "rbxassetid://2028453802" ,
-      ["SunflowerSeed"] = "rbxassetid://1952682401",
-      ["Treat"] = "rbxassetid://2028574353",
-      ["Snowflake"] = "rbxassetid://6087969886",
-      ["Gumdrop"] = "rbxassetid://1838129169",
-      ["Micro"] = "rbxassetid://2863122826",
-      ["Star"] = "rbxassetid://2000457501",
-      ["Bear1"] = "rbxassetid://1472532912"
-}
+
 local PopStarAura = "5101328809"
 local PlGui = game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui:WaitForChild("TileGrid")
 
@@ -567,40 +642,6 @@ function IsPopStar()
 end
 
 --print(IsPopStar())
-
-function GetTokenLink()
-local t = {}
-local i = 0
-for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
-
-if v:FindFirstChild("FrontDecal") then 
-if v.FrontDecal.Texture == TokenId["TokenLink"] then
-t[i] = v
-end
-
-end
-i = i+1
-end
-return t
-
-
-end
-
-function GetToken(TokenId)
-      local t = {}
-      local i = 0
-      for k,v in pairs (game.Workspace.Collectibles:GetChildren()) do
-      
-      if v:FindFirstChild("FrontDecal") then 
-      if v.FrontDecal.Texture == TokenId[id] then
-      t[i] = v
-      end
-      
-      end
-      i = i+1
-      end
-      return t
-end
 
 local snowflake = false
 
