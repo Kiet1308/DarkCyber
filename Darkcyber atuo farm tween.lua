@@ -293,7 +293,7 @@ function CollectAllTokenInField(Field)
       for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             if ( (v.Position-sangzboi.p).magnitude <= 60) and ((sanghuman.Position-v.Position).magnitude<=60) then
                   --local old = act6temp
-                  
+                  if v:FindFirstChild("FrontDecal") then
                   if TypeFarming=="Tp" then
                         sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                         wait(.1)
@@ -304,6 +304,7 @@ function CollectAllTokenInField(Field)
                   act6temp = false
                   Dig()
                   wait(.1)
+            end
             end           
       end
 
@@ -410,6 +411,7 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
       if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then
             if automob then
             --rootpart.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
+            if v:FindFirstChild("FrontDecal") then
             if TypeFarming=="Tp" then
                   sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                   wait(.1)
@@ -419,6 +421,7 @@ for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
             end
             wait()
             end
+      end
       end
 end
 
