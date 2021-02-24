@@ -793,7 +793,7 @@ local AutoPolar = Instance.new("TextButton")
 local HideTok = Instance.new("TextButton")
 local HideB = Instance.new("TextButton")
 local MemoryCheat = Instance.new("TextButton")
-
+local Coco = Instance.new("TextButton")
 
 
 local onlyhoney = false
@@ -965,6 +965,18 @@ TypeF.Font = Enum.Font.GothamBold
 TypeF.Text = "Type farming: Walking"
 TypeF.TextColor3 = Color3.new(1, 1, 1)
 TypeF.TextSize = 14
+
+func.Coco = false
+Coco.Name = "Coco"
+Coco.Parent = SettingPage
+Coco.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
+Coco.BorderSizePixel = 0
+Coco.Position = UDim2.new(0.0264150947, 0, 0.4853963569, 0)
+Coco.Size = UDim2.new(0, 98, 0, 20)
+Coco.Font = Enum.Font.GothamBold
+Coco.Text = "Catch coconut"
+Coco.TextColor3 = Color3.new(1, 1, 1)
+Coco.TextSize = 14
 
 
 -- TweenBtn.Name = "TweenBtn"
@@ -2511,7 +2523,18 @@ FarmBublle.MouseButton1Down:Connect(function()
       
       
       end)
-
+      Coco.MouseButton1Down:Connect(function()
+            if func.Coco then 
+            Coco.BackgroundColor3 = blue
+            func.Coco = false
+            else
+            Coco.BackgroundColor3 = red
+            func.Coco = true
+            end
+            
+            
+            
+            end)
 OnlyHoney.MouseButton1Down:Connect(function()
       if onlyhoney then 
       OnlyHoney.BackgroundColor3 = blue
@@ -4149,6 +4172,23 @@ local jimmy = coroutine.wrap(function()
             
         for k,v in pairs(workspace.Collectibles:GetChildren()) do
             if act6temp then break; end
+            if func.Coco then
+                  for d,f in pairs(game.Workspace.Particles:GetChildren()) do
+                        if f.Name =="WarningDisk" then
+                              if f:FindFirstChild("Mesh") then
+                                    if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
+                                    if f.Size==Vector3.new(30, 0.4, 30) then
+                                    tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
+                                    while(f:FindFirstChild("Mesh")) do
+                                    wait()
+                                    end
+                              end
+                              end
+                        end
+                        end
+                  
+                  end
+            end
             if tostring(v) == tostring(game.Players.LocalPlayer.Name) or tostring(v) == "C" then
 						if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then
 						
@@ -4156,9 +4196,28 @@ local jimmy = coroutine.wrap(function()
 				--if v.FrontDecal.Texture == HoneyBeeDecal then
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                 if not onlyhoney then
-
+                              
                               local s = GetTokenLink()
                               for b,t in pairs(s) do
+                                    if func.Coco then
+                                          
+                                                for d,f in pairs(game.Workspace.Particles:GetChildren()) do
+                                                      if f.Name =="WarningDisk" then
+                                                            if f:FindFirstChild("Mesh") then
+                                                                  if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
+                                                                  if f.Size==Vector3.new(30, 0.4, 30) then
+                                                                  tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
+                                                                  while(f:FindFirstChild("Mesh")) do
+                                                                  wait()
+                                                                  end
+                                                            end
+                                                            end
+                                                      end
+                                                      end
+                                                
+                                                
+                                          end
+                                    end
                                     if t:FindFirstChild("FrontDecal") then
                                     if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
                                           if TypeFarming=="Tp" then
@@ -4174,6 +4233,23 @@ local jimmy = coroutine.wrap(function()
                               end
 
                               for k,t in pairs(GetToken("Star")) do
+                                    if func.Coco then
+                                          for d,f in pairs(game.Workspace.Particles:GetChildren()) do
+                                                if f.Name =="WarningDisk" then
+                                                      if f:FindFirstChild("Mesh") then
+                                                            if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
+                                                            if f.Size==Vector3.new(30, 0.4, 30) then
+                                                            tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
+                                                            while(f:FindFirstChild("Mesh")) do
+                                                            wait()
+                                                            end
+                                                      end
+                                                      end
+                                                end
+                                                end
+                                          
+                                          end
+                                    end
                                    if t:FindFirstChild("FrontDecal") then
                                     if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
                                      if TypeFarming=="Tp" then
