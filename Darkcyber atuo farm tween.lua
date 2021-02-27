@@ -180,7 +180,7 @@ function KLDC()
                   coroutine.wrap(function()
                         local s,e = pcall(function()
                         
-                              if getsenv and not is_sirhurt_closure then -- Sirhurt argggg
+                              if getsenv and not is_sirhurt_closure and not PROTOSMASHER_LOADED then -- Sirhurt and proto argggg
                                     local t = getsenv(tool.ClientScriptMouse).collectStart
                                      t()
                                     else
@@ -4127,7 +4127,13 @@ local jimmy = coroutine.wrap(function()
                         if IsPopStar() then break end
                         if v:FindFirstChild("FrontDecal") then 
                               if (v.FrontDecal.Texture == TokenId["BlueBomb"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or (v.FrontDecal.Texture == TokenId["BlueBomb+"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or v.FrontDecal.Texture == TokenId["TokenLink"] and farming then   
-                                    sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
+                                    if TypeFarming=="Tp" then
+                                          sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                          wait(.1)
+                                    else
+                                          tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+      
+                                    end
                                     wait(.2)
                         
                               end
@@ -4141,7 +4147,13 @@ local jimmy = coroutine.wrap(function()
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then 
                                     if v:FindFirstChild("FrontDecal") then 
                                           if v.FrontDecal.Texture == TokenId["Frog"] and farming then
-                                                sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
+                                                if TypeFarming=="Tp" then
+                                                      sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                                      wait(.1)
+                                                else
+                                                      tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+                  
+                                                end
                                                 wait(.3)
                                           
                                           end
@@ -4156,7 +4168,13 @@ local jimmy = coroutine.wrap(function()
                               if v.ClassName == "Part" then
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
                                     if v.Name == "Bubble" then 
-                                    sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
+                                          if TypeFarming=="Tp" then
+                                                sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
+                                                wait(.1)
+                                          else
+                                                tp(CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z),times)
+            
+                                          end
                                     wait(.1)
                                     end
                               
