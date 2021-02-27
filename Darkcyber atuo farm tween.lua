@@ -794,7 +794,7 @@ local HideTok = Instance.new("TextButton")
 local HideB = Instance.new("TextButton")
 local MemoryCheat = Instance.new("TextButton")
 local Coco = Instance.new("TextButton")
-
+local TweenBtn2 = Instance.new("TextButton")
 
 local onlyhoney = false
 local nothoney = false
@@ -875,7 +875,9 @@ end
 function tp(t,k)
  if TypeFarming == "Tween" then 
    tpT(t,k)
-
+ else
+      if TypeFarming=="TweenSlow" then
+            tpT(t,0.5)
 else if TypeFarming=="Tp" then 
       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = t
       if k then wait(k) else wait(1) end
@@ -900,7 +902,7 @@ else
 end
 end
 end
-      
+end
          
       end
 
@@ -953,6 +955,16 @@ WalkBtn2.Text = "Walk Farm Fast"
 WalkBtn2.TextColor3 = Color3.new(1, 1, 1)
 WalkBtn2.TextSize = 14
 
+TweenBtn2.Name = "WalkBtn2"
+TweenBtn2.Parent = SettingPage
+TweenBtn2.BackgroundColor3 = Color3.new(0.34902, 0.32549, 1)
+TweenBtn2.BorderSizePixel = 0
+TweenBtn2.Position = UDim2.new(0.5264150947, 0, 0.2853963569, 0)
+TweenBtn2.Size = UDim2.new(0, 98, 0, 20)
+TweenBtn2.Font = Enum.Font.GothamBold
+TweenBtn2.Text = "Tween Slow"
+TweenBtn2.TextColor3 = Color3.new(1, 1, 1)
+TweenBtn2.TextSize = 14
 
 
 TypeF.Name = "TypeF"
@@ -2592,6 +2604,11 @@ end)
 TpBtn.MouseButton1Down:Connect(function()
       TypeFarming = "Tp"
       TypeF.Text = "Type farming: Tp"
+
+end)
+TweenBtn2.MouseButton1Down:Connect(function()
+      TypeFarming = "TweenSlow"
+      TypeF.Text = "Type farming: Tween Slow"
 
 end)
 
