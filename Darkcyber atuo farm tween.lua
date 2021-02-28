@@ -4161,22 +4161,7 @@ local jimmy = coroutine.wrap(function()
                   while IsPopStar() do
                          
                         for k,v in pairs(game.Workspace.Collectibles:GetChildren()) do
-                            if func.Coco then
-                                for d,f in pairs(game.Workspace.Particles:GetChildren()) do
-                                      if f.Name =="WarningDisk" then
-                                            if f:FindFirstChild("Mesh") then
-                                                  if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 and farming then
-                                                  if f.Size==Vector3.new(30, 0.4, 30) then
-                                                  tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
-                                                  while(f:FindFirstChild("Mesh")) do
-                                                  wait()
-                                                  end
-                                            end
-                                            end
-                                      end
-                                      end
-                                
-                                end 
+                             
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 then 
                                     if v:FindFirstChild("FrontDecal") then 
                                           if v.FrontDecal.Texture == TokenId["Frog"] and farming then
@@ -4198,22 +4183,6 @@ local jimmy = coroutine.wrap(function()
                         end
 
                         for k,v in pairs(game.Workspace.Particles:GetChildren()) do
-                            if func.Coco then
-                                for d,f in pairs(game.Workspace.Particles:GetChildren()) do
-                                      if f.Name =="WarningDisk" then
-                                            if f:FindFirstChild("Mesh") then
-                                                  if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 and farming then
-                                                  if f.Size==Vector3.new(30, 0.4, 30) then
-                                                  tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
-                                                  while(f:FindFirstChild("Mesh")) do
-                                                  wait()
-                                                  end
-                                            end
-                                            end
-                                      end
-                                      end
-                                
-                                end
                               if v.ClassName == "Part" then
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
                                     if v.Name == "Bubble" then 
@@ -4243,7 +4212,7 @@ local jimmy = coroutine.wrap(function()
                   for d,f in pairs(game.Workspace.Particles:GetChildren()) do
                         if f.Name =="WarningDisk" then
                               if f:FindFirstChild("Mesh") then
-                                    if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 and farming then
+                                    if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
                                     if f.Size==Vector3.new(30, 0.4, 30) then
                                     tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
                                     while(f:FindFirstChild("Mesh")) do
@@ -4271,7 +4240,7 @@ local jimmy = coroutine.wrap(function()
                                                 for d,f in pairs(game.Workspace.Particles:GetChildren()) do
                                                       if f.Name =="WarningDisk" then
                                                             if f:FindFirstChild("Mesh") then
-                                                                  if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 and farming then
+                                                                  if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
                                                                   if f.Size==Vector3.new(30, 0.4, 30) then
                                                                   tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
                                                                   while(f:FindFirstChild("Mesh")) do
@@ -4304,7 +4273,7 @@ local jimmy = coroutine.wrap(function()
                                           for d,f in pairs(game.Workspace.Particles:GetChildren()) do
                                                 if f.Name =="WarningDisk" then
                                                       if f:FindFirstChild("Mesh") then
-                                                            if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 and farming then
+                                                            if ((f.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-f.Position).magnitude<=60 then
                                                             if f.Size==Vector3.new(30, 0.4, 30) then
                                                             tp(CFrame.new(f.Position.X,f.Position.Y,f.Position.Z))
                                                             while(f:FindFirstChild("Mesh")) do
