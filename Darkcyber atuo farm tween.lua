@@ -2652,7 +2652,7 @@ for d=1,5 do wait(.01)
       repss = repss + 1
 end
 
-if game.PlaceId == 1537690962 or game.PlaceId == 4079902982 then
+if game.PlaceId == 1537690962 or game.PlaceId == 4079902982 or game.PlaceId == 3719762683 then
 Loadingtext.Text = "Loading UI: Success"
 if syn then 
 LoadingFrame:TweenPosition(UDim2.new(0.410933673, 0, -0.7, 0)) 
