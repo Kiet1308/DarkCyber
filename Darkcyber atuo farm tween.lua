@@ -1,6 +1,19 @@
 -- Walking time out: 5s
 
 --
+
+function IsToken(token)
+if token then
+if token.Orientation.Z~=0 then return false end
+if not token:FindFirstChild("FrontDecal") then return false end
+return true
+
+else return false end
+
+end
+-- Walking time out: 5s
+
+--
 local TokenId = 
 {
 	["TokenLink"] = "rbxassetid://1629547638",
@@ -4159,7 +4172,7 @@ local jimmy = coroutine.wrap(function()
                   if v.ClassName=="Part" then
                   if (((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60) and farming then
                         if IsPopStar() then break end
-                        if v:FindFirstChild("FrontDecal") then 
+                        if IsToken(v) then 
                               if (v.FrontDecal.Texture == TokenId["BlueBomb"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or (v.FrontDecal.Texture == TokenId["BlueBomb+"] and v.FrontDecal.Color3 == Color3.fromRGB(70, 126, 251)) or v.FrontDecal.Texture == TokenId["TokenLink"] and farming then   
                                     if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4196,7 +4209,7 @@ local jimmy = coroutine.wrap(function()
                                 end
                           end
                               if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then 
-                                    if v:FindFirstChild("FrontDecal") then 
+                                    if IsToken(v) then 
                                           if v.FrontDecal.Texture == TokenId["Frog"] and farming then
                                                 if TypeFarming=="Tp" then
                                                       sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4279,7 +4292,7 @@ local jimmy = coroutine.wrap(function()
             if tostring(v) == tostring(game.Players.LocalPlayer.Name) or tostring(v) == "C" then
 						if ((v.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-v.Position).magnitude<=60 and farming then
 						
-						if v:FindFirstChild("FrontDecal") then
+						if IsToken(v) then
 				--if v.FrontDecal.Texture == HoneyBeeDecal then
                 --sanghuman.CFrame = CFrame.new(v.Position.x, sanghuman.Position.y, v.Position.z)
                 if not onlyhoney then
@@ -4305,7 +4318,7 @@ local jimmy = coroutine.wrap(function()
                                                 
                                           end
                                     end
-                                    if t:FindFirstChild("FrontDecal") then
+                                    if IsToken(t) then
                                     if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
                                           if TypeFarming=="Tp" then
                                                 sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
@@ -4337,7 +4350,7 @@ local jimmy = coroutine.wrap(function()
                                           
                                           end
                                     end
-                                   if t:FindFirstChild("FrontDecal") then
+                                   if IsToken(t) then
                                     if ((t.Position-sangzboi.p).magnitude <= 60) and (sanghuman.Position-t.Position).magnitude<=60 and farming then
                                      if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(t.Position.x, t.Position.Y, t.Position.z)
@@ -4353,7 +4366,7 @@ local jimmy = coroutine.wrap(function()
                         
                   end
 				if nothoney then
-                        if v:FindFirstChild("FrontDecal") then
+                        if IsToken(v) then
 				if v.FrontDecal.Texture ~= HoneyBeeDecal and farming then 
                               if TypeFarming=="Tp" then
                                     sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4367,7 +4380,7 @@ local jimmy = coroutine.wrap(function()
                   end
 				else
                         if onlyhoney then
-                              if v:FindFirstChild("FrontDecal") then 
+                              if IsToken(v) then 
                               if v.FrontDecal.Texture == HoneyBeeDecal and farming then
                                     if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
@@ -4380,7 +4393,7 @@ local jimmy = coroutine.wrap(function()
                         end
                         else
                               if farming then
-                              if v:FindFirstChild("FrontDecal") then
+                              if IsToken(v) then
                                     if TypeFarming=="Tp" then
                                           sanghuman.CFrame = CFrame.new(v.Position.x, v.Position.Y, v.Position.z)
                                           wait(.1)
