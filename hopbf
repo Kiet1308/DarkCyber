@@ -2,7 +2,7 @@ print("Quee")
 local Character
 while not s and Character~=nil do 
 local k,v = pcall(function() 
-Character = game:GetService("Players").LocalPlayer
+Character = game:GetService("Players").LocalPlayer.Character
 end)
 s=k
 end
