@@ -126,4 +126,5 @@ for k,v in pairs(game.Workspace:GetChildren()) do
 
 if not fui then
 Teleport()
+syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Kiet1308/DarkCyber/main/hopbf"))
 end
