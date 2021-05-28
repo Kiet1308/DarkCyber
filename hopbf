@@ -1,6 +1,14 @@
 _G.Team = 0
 RootPart = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-Character = game:GetService("Players").LocalPlayer.Character
+local s = false
+local Character
+while not s do 
+local k,v = pcall(function() 
+Character = game:GetService("Players").LocalPlayer
+end)  
+s=k
+end
+
 LocalPlayer = game:GetService("Players").LocalPlayer
 
 wait(5)
@@ -118,8 +126,9 @@ for k,v in pairs(game.Workspace:GetChildren()) do
                 if v:IsA("Tool") then
                     if string.match(v.Name,"Quake") then
                     fui=true
-                    firetouchinterest(game.Players.LocalPlayer.Character.LeftFoot,v.Handle,0)
+                    
                     end
+                    firetouchinterest(game.Players.LocalPlayer.Character.LeftFoot,v.Handle,0)
                     end
             end
     end
