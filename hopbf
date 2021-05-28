@@ -1,7 +1,4 @@
 print("Quee")
-_G.Team = 0
-RootPart = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-local s = false
 local Character
 while not s and Character~=nil do 
 local k,v = pcall(function() 
@@ -9,6 +6,10 @@ Character = game:GetService("Players").LocalPlayer
 end)
 s=k
 end
+
+_G.Team = 0
+RootPart = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local s = false
 
 LocalPlayer = game:GetService("Players").LocalPlayer
 
