@@ -3,7 +3,7 @@ _G.Team = 0
 RootPart = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 local s = false
 local Character
-while not s do 
+while not s and Character~=nil do 
 local k,v = pcall(function() 
 Character = game:GetService("Players").LocalPlayer
 end)
