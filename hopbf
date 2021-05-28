@@ -3,7 +3,7 @@ RootPart = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humano
 Character = game:GetService("Players").LocalPlayer.Character
 LocalPlayer = game:GetService("Players").LocalPlayer
 
-
+wait(5)
 if _G.Team == 0 then
     local MyUiButton = game.Players.LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton
 
@@ -18,7 +18,7 @@ elseif _G.Team == 1 then
     end
 end
 
-wait(3)
+wait(2)
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
@@ -125,6 +125,7 @@ for k,v in pairs(game.Workspace:GetChildren()) do
     end
 
 if not fui then
+    syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Kiet1308/DarkCyber/main/hopbf"))
 Teleport()
-syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Kiet1308/DarkCyber/main/hopbf"))
+
 end
